@@ -51,4 +51,5 @@ EXEC linnaOtsing T;
 
 ![image](https://github.com/user-attachments/assets/443e86c8-ecdc-4429-80ec-9f866db8e79b)
 
+![image](https://github.com/user-attachments/assets/bb66fee6-9856-4c70-8567-a3e953871f99)
 
