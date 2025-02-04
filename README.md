@@ -47,4 +47,5 @@ END;
 --kutse 
 EXEC linnaOtsing T;
 
-![image](https://github.com/user-attachments/assets/a4228b12-60f0-499f-bb6f-241fb29c7048)
+![image](https://github.com/user-attachments/assets/65eae3b1-534b-4d24-9f4a-7cb551e09288)
+
