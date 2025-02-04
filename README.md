@@ -47,6 +47,27 @@ END;
 --kutse 
 EXEC linnaOtsing T;
 
+--tabeli uuendamine - rahvaarv kasvab 10% võrra
+UPDATE linn SET rahvaArv=rahvaArv*1.1
+SELECT * From linn;
+UPDATE linn SET rahvaArv=rahvaArv*1.1
+Where linnID=7;
+
+CREATE PROCEDURE rahvaArvuUuendus
+@linnID int,
+@koef decimal(2,1)
+AS
+BEGIN
+UPDATE linn SET rahvaArv=rahvaArv*@koef
+Where linnID=@linnID;
+SELECT * From linn;
+END;
+
+drop procedure rahvaArvuUuendus;
+
+EXEC rahvaArvuUuendus 7, 1.2;
+
+
 ![image](https://github.com/user-attachments/assets/65eae3b1-534b-4d24-9f4a-7cb551e09288)
 
 ![image](https://github.com/user-attachments/assets/443e86c8-ecdc-4429-80ec-9f866db8e79b)
