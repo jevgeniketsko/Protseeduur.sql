@@ -74,3 +74,67 @@ EXEC rahvaArvuUuendus 7, 1.2;
 
 ![image](https://github.com/user-attachments/assets/bb66fee6-9856-4c70-8567-a3e953871f99)
 
+Use Protseduur
+Create Table linn( 
+LinnId int primary Key identity(1,1),
+LinnNimi varchar(30),
+
+-- uue veeru lisamine
+Alter table linn ADD test int;
+--veeru kustutamine
+alter table linn drop column test;
+
+Create procedure veeruLisaKustutaTabelis
+@valik varchar(20),
+@tabelinimi varchar(20),
+@veerunimi varchar(20),
+@tyyp varchar(20),
+
+AS
+BEGIN
+Insert into linn (linnNimi, rahvaArv) Values (@lNimi, @rArv); Select * From linn;
+Declare @sqltegevus as varchar(max)
+set @sqltegevus=case 
+when @valik='add' then concat('alter table linn ADD ', @veerunimi, '', @tyyp);
+when @valik'drop' then concat('alter table linn drop column ', @veerunimi);
+END;
+print @sqltegevus;
+begin
+exec (@sqltegevus);
+END
+END;
+
+
+--kutse		
+EXEC veeruLisakustuta @valik='add', @veerunimi= 'test3', @typp='int';
+Select * from linn;
+Exec veeruLisaKustutaTabelis @valik= 'drop', @tabelinimi='linn', @veerunimi='test3';
+Select *from linn;
+
+--protseduur tingimusega 
+Create procedure rahvaHinnang 
+
+
+AS
+BEGIN
+Select linnNimi, rahvaArv, IIF(rahvaArv<2000, 'väike linn', 'suur linn') as Hinnang 
+From linn;
+
+
+END;
+
+Drop prodecure rahvaHinnang;
+
+Exec rahvaHinnang 2000;
+--Agregaat funkstioonid: SUM(), AVG(), MIN(), MAX(), COUNT()
+
+Create procedure kokkuRahvaarv
+
+AS 
+BEGIN
+Select SUM(rahvaArv) AS 'kokku rahvaArv', AVG(RahvaArv) AS 'keskmine rahvaArvä', Count(*)
+From linn;
+END;
+
+Exec kokkuRahvaarv;
+
