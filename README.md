@@ -138,3 +138,51 @@ END;
 
 Exec kokkuRahvaarv;
 
+
+Create Database veateade;
+use veateade;
+CREATE TABLE test (
+    id INT,
+    nimi VARCHAR(20)
+);
+alter table test alter column id int not null;
+Alter table test add primary key (id);
+
+Insert into test(id, nimi)
+Values (1, 'test');
+
+Select * from test;
+alter table test alter column nimi varchar(25);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
